@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+label {
+  color: #282828;
+}
+
+/* modal background */
+.modal_bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* modal 전체 틀 */
+.modal_container {
+  width: 410px;
+  height: 540px;
+  padding: 30px 30px 0 30px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 5px 0 rgb(129, 129, 129);
+  position: relative;
+}
+
+/* modal 닫기 버튼 */
+.modal_container .close_btn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  padding: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.modal_container .close_btn i {
+  font-size: 18px;
+}
+
+/* modal 팀원 정보 틀 */
+.modal_info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.modal_info .user_img {
+  width: 180px;
+  height: 180px;
+}
+.modal_info .user_img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.user_info {
+  display: flex;
+  flex-direction: column;
+}
+.user_info label {
+  margin-bottom: 3px;
+}
+.user_info input {
+  width: 150px;
+  height: 35px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 4px 0 rgb(129, 129, 129);
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.user_info .user_url {
+  margin-top: 7px;
+}
+.user_info .user_url a {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.user_info .user_url a:first-child {
+  margin-right: 5px;
+}
+.user_info .user_url a i {
+  display: block;
+  margin-top: 6px;
+  font-size: 28px;
+  text-align: center;
+}
+.user_info .user_url .velog_color {
+  background-color: #64db99;
+  color: white;
+}
+.user_info .user_url .velog_color:hover {
+  background-color: rgb(151, 235, 189);
+}
+.user_info .user_url .github_color {
+  background-color: #282828;
+}
+.user_info .user_url .github_color:hover {
+  background-color: #868686;
+}
+.user_info .user_url .github_color i {
+  color: white;
+}
+
+/* modal 컨텐츠 틀 */
+.modal_content {
+  width: 100%;
+}
+.modal_content label {
+  display: block;
+  margin-bottom: 5px;
+}
+.modal_content textarea {
+  width: 100%;
+  height: 90px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 4px 0 rgb(129, 129, 129);
+  outline: none;
+  font-size: 15px;
+  resize: none;
+}
+.modal_content textarea:last-child {
+  margin-bottom: 13px;
+}
+
+/* modal 수정, 삭제 버튼 */
+.modal_btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal_btns button {
+  width: 100px;
+  height: 35px;
+  border-radius: 15px;
+  border: none;
+  background-color: #0a82ff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+.modal_btns button:hover {
+  background-color: #47a0ff;
+}
+.modal_btns button:first-child {
+  margin-right: 20px;
+}

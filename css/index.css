@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "DNFBitBitv2";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NeoDunggeunmo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font_DNFBitBitv2 {
+  font-family: "DNFBitBitv2";
+}
+
+.font_NeoDunggeunmo {
+  font-family: "NeoDunggeunmo";
+}
+
+body {
+  background-image: url("../image/bg_index2.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 136px;
+  position: absolute;
+  top: 145px;
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  color: #007bff;
+}
+
+.sub-title {
+  font-size: 36px;
+  text-align: center;
+  position: absolute;
+  top: 330px;
+  color: #333;
+}
+.star {
+  width: 170px;
+  position: absolute;
+  top: 4%;
+  margin-right: -56%;
+}
+.star:hover {
+  transform: scale(1.4);
+}
+.rtan {
+  position: absolute;
+  left: 410px;
+  bottom: 125px;
+}
+.rtan3 {
+  position: absolute;
+  right: 410px;
+  bottom: 125px;
+  width: 430px;
+}
+
+.btn {
+  position: absolute;
+  bottom: 289px;
+}
+
+.btn button {
+  background: linear-gradient(to right, #1985f2 50%, #1ec2ff 100%);
+  color: white;
+  border-radius: 61px;
+  width: 245px;
+  height: 91px;
+  font-size: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+}
+
+.btn button:hover {
+  transform: scale(1.05);
+}

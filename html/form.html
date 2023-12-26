@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/form.css">
+</head>
+
+<body>
+  <div class="modal_wrap">
+    <div class="modal_bg">
+      <div class="form_container">
+        <div class="top_bar">
+          <h1 class="fw-bold mb-0 fs-2" style="margin: auto;">등록하기</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick=""></button>
+        </div>
+        <div class="uploadImg">
+          <div class="filebox">
+            <div class="imageupload">
+              <img id="previewImg" onclick="">
+              <input class="upload-name" value="image" disabled="disabled">
+              <input type="file" id="file1" class="upload-hidden" name="file1" accept="image/*"
+                  onchange="readURL(this);">
+              <label for="file1">이미지 첨부</label>
+            </div>
+            <div class="allfloatinglabel">
+              <div class="floatinglabel1">
+                <input type="email" class="form-control" id="floatingInput" placeholder="이름">
+
+              </div>
+              <div class="floatinglabel1">
+                <input type="email" class="form-control" id="floatingInput" placeholder="MBTI">
+
+              </div>
+              <div class="floatinglabel1">
+                <input type="email" class="form-control" id="floatingInput" placeholder="블로그 주소">
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="underlabel">
+            <div class="floatinglabel2">
+              <textarea class="form-control" placeholder="장점" id="floatingTextarea"></textarea>
+
+            </div>
+            <div class="floatinglabel2">
+              <textarea class="form-control" placeholder="협업 스타일" id="floatingTextarea"></textarea>
+            </div>
+            <div class="mybtn">
+
+              <button type="button" class="btn btn-primary btn-lg">등록하기</button>
+              <button type="button" class="btn btn-primary btn-lg">취소하기</button>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

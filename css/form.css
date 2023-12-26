@@ -1,0 +1,141 @@
+.form_container {
+    width: 500px;
+    height: 650px;
+    padding: 30px 30px 0 30px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px 0 rgb(129, 129, 129);
+    position: relative;
+}
+
+/* 테두리 */
+.modal_bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 밖 배경 */
+.top_bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 등록하기, X */
+.uploadImg {
+    margin: 30px;
+
+}
+
+.imageupload {
+    display: flex;
+    flex-direction: column;
+}
+
+.filebox {
+    width: 300px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.filebox label {
+    display: flex;
+    padding: 4px 8px;
+    margin: auto;
+    color: #999;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #0a82ff;
+
+}
+
+.filebox input[ type="file"
+
+] {
+    justify-content: flex-start;
+    position: static;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+
+
+}
+
+.filebox .upload-name {
+    display: inline-block;
+    padding: 0.3em 0.4em;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    flex-basis: 180px;
+}
+
+/* 이미지 첨부쪽 */
+
+.floatinglabel1>input {
+
+    height: 50px;
+    width: 170px;
+    box-shadow: 0 2px 4px 0 rgb(129, 129, 129);
+    margin: 10px;
+    border-radius: 8px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+}
+
+/* 이름, MBTI, 블로그 주소 */
+.floatinglabel2>textarea {
+    height: 100px;
+    width: 340px;
+    box-shadow: 0 2px 4px 0 rgb(129, 129, 129);
+    margin: 10px;
+    border-radius: 8px;
+
+
+}
+
+/* 장점, 협업스타일 */
+
+.underlabel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mybtn>button {
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+    border: none;
+    background-color: #0a82ff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+
+    margin-right: 20px;
+}
+
+/* 버튼 */
