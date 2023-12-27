@@ -110,7 +110,8 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-#card >div nth:child(1){ background: red; }
+
+

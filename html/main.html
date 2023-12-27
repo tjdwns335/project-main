@@ -211,108 +211,6 @@
     let advantagesId = document.getElementById('advantages');
     let collaborateId = document.getElementById('collaborate');
 
-    let saveBtn = document.getElementById('savebtn');
-
-    // saveBtn.click(async function () {
-    //   let image = imageSrc.value.text();
-    //   let title = nameId.val();
-    //   let MBTI = MbtiId.val();
-    //   let BLOG = BLOGId.val();
-    //   let GITHUB = GITHUBId.val();
-    //   let advantages = advantagesId.val();
-    //   let collaborate = collaborateId.val();
-    //   let doc = {
-    //     'image': image,
-    //     'title': title,
-    //     'MBTI': MBTI,
-    //     'BLOG': BLOG,
-    //     'GITHUB': GITHUB,
-    //     'advantages': advantages,
-    //     'collaborate': collaborate,
-    //   };
-    //   await addDoc(collection(db, "idle"), doc);
-    //   alert('저장완료!');
-    //   window.location.reload();
-    // })
-
-    // let docs = await getDocs(collection(db, "idle"));
-    // docs.forEach((doc) => {
-    //   let row = doc.data();
-
-    //   let image = row['image'];
-    //   let title = row['title'];
-    //   let MBTI = row['MBTI'];
-    //   let BLOG = row['BLOG'];
-    //   let GITHUB = row['GITHUB'];
-    //   let advantages = row['advantages'];
-    //   let collaborate = row['collaborate'];
-
-    //   let temp_html =
-    //     `<div class="card-flip" data-card-id="${doc.id}"> 
-    //             <div class="card-inner" >
-    //                 <div class="front-card">
-    //                     <img src="${image}" alt="card-img">
-    //                 </div>
-    //                 <div class="back-card">
-    //                     <img src="${image}" alt="card-img">
-    //                     <h4 class="title">${title}</h4>
-    //                     <a data-toggle="modal" href="#" class="readmore" data-id="${doc.id}">자세히 보기</a>
-    //                 </div>
-    //             </div>
-    //         </div>`;
-
-    //   let temp_detail =
-    //     `
-    //    <div class="modal_bg">
-    //       <div class="modal_container">
-    //         <button type="button" class="close_btn" id="closeButton">
-    //           <i class="fa-solid fa-x"></i>
-    //         </button>
-    //       <div class="modal_info">
-    //         <div class="user_img">
-    //           <img src="${image}" alt="user image">
-    //         </div>
-    //         <div class="user_info">
-    //           <label for="user_name">이름</label>
-    //           <input type="text" name="user_name" id="user_name" placeholder="${title}">
-    //           <label for="user_mbti">MBTI</label>
-    //           <input type="text" name="user_mbti" id="user_mbti" placeholder="${MBTI}">
-    //         <div class="user_url">
-    //           <a href="${BLOG}" class="velog_color">
-    //             <i class="fa-solid fa-v"></i>
-    //           </a>
-    //           <a href="${GITHUB}" class="github_color">
-    //             <i class="fa-brands fa-github"></i>
-    //           </a>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div class="modal_content">
-    //       <label for="collaborate">협업스타일</label>
-    //       <textarea name="collaborate">${collaborate}</textarea>
-    //       <label for="advantages">장점</label>
-    //       <textarea name="advantages">${advantages}</textarea>
-    //     </div>
-    //     <div class="modal_btns">
-    //       <button type="button">수정하기</button>
-    //       <button type="button">삭제하기</button>
-    //     </div>
-    //   </div>
-    // </div>`;
-
-
-
-    //   $('#card').append(temp_html);
-    //   $("#modalPage").append(temp_detail);
-
-    //   $(".readmore").click(async function () {
-    //     let cardId = $(this).attr('data-id')
-    //     $(`#${cardId}`).css('display', 'flex');
-    //   });
-
-
-    // })
-
     document.getElementById('savebtn').addEventListener('click', async function () {
       const image = imageId.src;
       const title = nameId.value;
@@ -352,18 +250,22 @@
           <div class="card-flip">
             <div class="card-inner">
                 <div class="front-card">
-                  <img src="${image}" alt="card-img">
+                  <img
+                    src="${image}"
+                    alt="card-img">
                 </div>
                 <div class="back-card">
-                  <img src="${image}" alt="card-img">
+                  <img
+                    src="${image}"
+                    alt="card-img">
                   <h4>${title}</h4>
-                  <a href="#" class="btn btn-primary" id="button2">자세히 보기</a>
+                  <a href="#" class="btn btn-primary">자세히 보기</a>
                 </div>
               </div>
           </div>`;
 
       const temp_detail = `
-          <div class="modal_bg">
+          <div class="modal_bg hidden">
             <div class="modal_container">
               <button type="button" class="close_btn" id="closeButton">
                 <i class="fa-solid fa-x"></i>
@@ -394,8 +296,7 @@
                 <textarea name="advantages">${advantages}</textarea>
               </div>
               <div class="modal_btns">
-                <button type="button">수정하기</button>
-                <button type="button">삭제하기</button>
+                
               </div>
             </div>
           </div>`;
@@ -406,27 +307,41 @@
   </script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
 
-      // 등록 버튼 클릭 시 Form 페이지로 전환
-      $('#btn-form').click(function () {
-        $('#regmodal').removeClass('hidden');
-        $('#modalPage').addClass('hidden');
-      });
 
-      // 자세히 보기 버튼 클릭 시 Modal 페이지로 전환
-      $('#card >div nth:child(1) .back-card a').click(function () {
-        $('#regmodal').addClass('hidden');
-        $('#modalPage>div nth:child(1)').removeClass('.hidden');
-      });
-
-      $('#closeButton').click(function () {
-        $('#modalPage').addClass('hidden');
-      });
-      $('#closemodal').click(function () {
-        $('#regmodal').addClass('hidden');
-      });
+    // 등록 버튼 클릭 시 Form 페이지로 전환
+    $('#btn-form').click(function () {
+      $('#regmodal').removeClass('hidden');
+      $('#modalPage').addClass('hidden');
     });
+
+    $('#closeButton').click(function () {
+      $('#modalPage').addClass('hidden');
+    });
+    $('#closemodal').click(function () {
+      $('#regmodal').addClass('hidden');
+    });
+
+
+    
+
+    for (let i = 1; i <= 5; i++) {
+      $(`#card :nth-child(${i}) .back-card a`).click(function () {
+        $(`#modalPage:nth-child(${i})`).removeClass('hidden');
+        $(`#modalPage:nth-child(${i}) #closeButton`).click(function(){
+          $(`#modalPage:nth-child(${i})`).addClass('hidden');
+        });
+        
+
+        for (let j = 1; j <= 5; j++) {
+          if (j !== i) {
+            $(`#modalPage:nth-child(${j})`).addClass('hidden');
+          }
+        }
+      });
+    }
+
+
   </script>
 
 </body>
