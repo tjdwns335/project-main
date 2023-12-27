@@ -32,6 +32,7 @@
 .imageupload {
     display: flex;
     flex-direction: column;
+    margin-top: 15px
 }
 .imgbackground{
     width: 200px;
@@ -46,7 +47,7 @@
 }
 
 .filebox {
-    width: 300px;
+    width: 100%;
     margin: 20px;
     display: flex;
     justify-content: space-between;
