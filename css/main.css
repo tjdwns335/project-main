@@ -112,3 +112,5 @@ body {
 .hidden {
   display: none;
 }
+
+#card >div nth:child(1){ background: red; }

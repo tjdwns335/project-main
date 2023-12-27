@@ -29,7 +29,7 @@
       </div>
 
       <div class="card-wrap" id="card">
-        <div class="card-flip">
+        <!-- <div class="card-flip">
           <div class="card-inner">
             <div class="front-card">
               <img
@@ -44,7 +44,7 @@
               <a href="#" class="btn btn-primary" id="button2">자세히 보기</a>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- <div class="card-flip">
           <div class="card-inner">
             <div class="front-card">
@@ -114,43 +114,8 @@
   </div>
 
   <!-- modal -->
-  <div class="modal_wrap hidden" id="modalPage">
-    <div class="modal_bg">
-      <div class="modal_container">
-        <button type="button" class="close_btn" id="closeButton">
-          <i class="fa-solid fa-x"></i>
-        </button>
-        <div class="modal_info">
-          <div class="user_img">
-            <img src="../image/user.jpg" alt="user image">
-          </div>
-          <div class="user_info">
-            <label for="user_name">이름</label>
-            <input type="text" name="user_name" id="user_name">
-            <label for="user_mbti">MBTI</label>
-            <input type="text" name="user_mbti" id="user_mbti">
-            <div class="user_url">
-              <a href="#" class="velog_color">
-                <i class="fa-solid fa-v"></i>
-              </a>
-              <a href="#" class="github_color">
-                <i class="fa-brands fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="modal_content">
-          <label for="collaborate">협업 스타일</label>
-          <textarea name="collaborate"></textarea>
-          <label for="advantages">장점</label>
-          <textarea name="advantages"></textarea>
-        </div>
-        <div class="modal_btns">
-          <button type="button">수정하기</button>
-          <button type="button">삭제하기</button>
-        </div>
-      </div>
-    </div>
+  <div class="modal_wrap" id="modalPage">
+
   </div>
 
   <!-- form -->
@@ -189,8 +154,8 @@
       </div>
 
       <div class="mybtn">
-        <button type="button" id="savebtn">등록하기</button>
-        <button type="button" id="closemodal">취소하기</button>
+        <button type="button" id="savebtn" class="fixbtn">등록하기</button>
+        <button type="button" id="closemodal" class="delbtn">취소하기</button>
       </div>
     </div>
   </div>
@@ -199,7 +164,270 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="../js/main.js" type="module"></script>
+
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+
+    // Firebase 구성 정보 설정
+    const firebaseConfig = {
+      apiKey: "AIzaSyDsqks7XAwVmqZzbFFdLcqOyq-5Pasu8lo",
+      authDomain: "sparta-56f56.firebaseapp.com",
+      projectId: "sparta-56f56",
+      storageBucket: "sparta-56f56.appspot.com",
+      messagingSenderId: "479939475941",
+      appId: "1:479939475941:web:0605d1671eba3b2afed70c",
+      measurementId: "G-VEV4YBEC8M"
+    };
+
+
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+
+
+    import { readURL } from '../js/imageUtils.js';
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const fileInput = document.getElementById('file1');
+
+      fileInput.addEventListener('change', function (event) {
+        readURL(event.target);
+      });
+    });
+
+    let imageId = document.getElementById('preview');
+    let imageSrc = imageId.src;
+    let nameId = document.getElementById('title');
+    let MbtiId = document.getElementById('MBTI');
+    let BLOGId = document.getElementById('BLOG');
+    let GITHUBId = document.getElementById('GITHUB');
+    let advantagesId = document.getElementById('advantages');
+    let collaborateId = document.getElementById('collaborate');
+
+    let saveBtn = document.getElementById('savebtn');
+
+    // saveBtn.click(async function () {
+    //   let image = imageSrc.value.text();
+    //   let title = nameId.val();
+    //   let MBTI = MbtiId.val();
+    //   let BLOG = BLOGId.val();
+    //   let GITHUB = GITHUBId.val();
+    //   let advantages = advantagesId.val();
+    //   let collaborate = collaborateId.val();
+    //   let doc = {
+    //     'image': image,
+    //     'title': title,
+    //     'MBTI': MBTI,
+    //     'BLOG': BLOG,
+    //     'GITHUB': GITHUB,
+    //     'advantages': advantages,
+    //     'collaborate': collaborate,
+    //   };
+    //   await addDoc(collection(db, "idle"), doc);
+    //   alert('저장완료!');
+    //   window.location.reload();
+    // })
+
+    // let docs = await getDocs(collection(db, "idle"));
+    // docs.forEach((doc) => {
+    //   let row = doc.data();
+
+    //   let image = row['image'];
+    //   let title = row['title'];
+    //   let MBTI = row['MBTI'];
+    //   let BLOG = row['BLOG'];
+    //   let GITHUB = row['GITHUB'];
+    //   let advantages = row['advantages'];
+    //   let collaborate = row['collaborate'];
+
+    //   let temp_html =
+    //     `<div class="card-flip" data-card-id="${doc.id}"> 
+    //             <div class="card-inner" >
+    //                 <div class="front-card">
+    //                     <img src="${image}" alt="card-img">
+    //                 </div>
+    //                 <div class="back-card">
+    //                     <img src="${image}" alt="card-img">
+    //                     <h4 class="title">${title}</h4>
+    //                     <a data-toggle="modal" href="#" class="readmore" data-id="${doc.id}">자세히 보기</a>
+    //                 </div>
+    //             </div>
+    //         </div>`;
+
+    //   let temp_detail =
+    //     `
+    //    <div class="modal_bg">
+    //       <div class="modal_container">
+    //         <button type="button" class="close_btn" id="closeButton">
+    //           <i class="fa-solid fa-x"></i>
+    //         </button>
+    //       <div class="modal_info">
+    //         <div class="user_img">
+    //           <img src="${image}" alt="user image">
+    //         </div>
+    //         <div class="user_info">
+    //           <label for="user_name">이름</label>
+    //           <input type="text" name="user_name" id="user_name" placeholder="${title}">
+    //           <label for="user_mbti">MBTI</label>
+    //           <input type="text" name="user_mbti" id="user_mbti" placeholder="${MBTI}">
+    //         <div class="user_url">
+    //           <a href="${BLOG}" class="velog_color">
+    //             <i class="fa-solid fa-v"></i>
+    //           </a>
+    //           <a href="${GITHUB}" class="github_color">
+    //             <i class="fa-brands fa-github"></i>
+    //           </a>
+    //         </div>
+    //       </div>
+    //     </div>
+    //     <div class="modal_content">
+    //       <label for="collaborate">협업스타일</label>
+    //       <textarea name="collaborate">${collaborate}</textarea>
+    //       <label for="advantages">장점</label>
+    //       <textarea name="advantages">${advantages}</textarea>
+    //     </div>
+    //     <div class="modal_btns">
+    //       <button type="button">수정하기</button>
+    //       <button type="button">삭제하기</button>
+    //     </div>
+    //   </div>
+    // </div>`;
+
+
+
+    //   $('#card').append(temp_html);
+    //   $("#modalPage").append(temp_detail);
+
+    //   $(".readmore").click(async function () {
+    //     let cardId = $(this).attr('data-id')
+    //     $(`#${cardId}`).css('display', 'flex');
+    //   });
+
+
+    // })
+
+    document.getElementById('savebtn').addEventListener('click', async function () {
+      const image = imageId.src;
+      const title = nameId.value;
+      const MBTI = MbtiId.value;
+      const BLOG = BLOGId.value;
+      const GITHUB = GITHUBId.value;
+      const advantages = advantagesId.value;
+      const collaborate = collaborateId.value;
+      let doc = {
+        image,
+        title,
+        MBTI,
+        BLOG,
+        GITHUB,
+        advantages,
+        collaborate,
+      };
+
+      await addDoc(collection(db, "Idle"), doc);
+      alert('저장 완료!');
+      window.location.reload();
+    });
+
+    let docs = await getDocs(collection(db, "Idle"));
+    docs.forEach((doc) => {
+      let row = doc.data();
+
+      let image = row.image;
+      let title = row.title;
+      let MBTI = row.MBTI;
+      let BLOG = row.BLOG;
+      let GITHUB = row.GITHUB;
+      let advantages = row.advantages;
+      let collaborate = row.collaborate;
+
+      const temp_html = `
+          <div class="card-flip">
+            <div class="card-inner">
+                <div class="front-card">
+                  <img src="${image}" alt="card-img">
+                </div>
+                <div class="back-card">
+                  <img src="${image}" alt="card-img">
+                  <h4>${title}</h4>
+                  <a href="#" class="btn btn-primary" id="button2">자세히 보기</a>
+                </div>
+              </div>
+          </div>`;
+
+      const temp_detail = `
+          <div class="modal_bg">
+            <div class="modal_container">
+              <button type="button" class="close_btn" id="closeButton">
+                <i class="fa-solid fa-x"></i>
+              </button>
+              <div class="modal_info">
+                <div class="user_img">
+                  <img src="${image}" alt="user image">
+                </div>
+                <div class="user_info">
+                  <label for="user_name">이름</label>
+                  <input type="text" name="user_name" id="user_name" placeholder="${title}  ">
+                  <label for="user_mbti">MBTI</label>
+                  <input type="text" name="user_mbti" id="user_mbti"placeholder="${MBTI}">
+                  <div class="user_url">
+                    <a href="${BLOG}" class="velog_color">
+                      <i class="fa-solid fa-v"></i>
+                    </a>
+                    <a href="${GITHUB}" class="github_color">
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="modal_content">
+                <label for="collaborate">협업 스타일</label>
+                <textarea name="collaborate">${collaborate}</textarea>
+                <label for="advantages">장점</label>
+                <textarea name="advantages">${advantages}</textarea>
+              </div>
+              <div class="modal_btns">
+                <button type="button">수정하기</button>
+                <button type="button">삭제하기</button>
+              </div>
+            </div>
+          </div>`;
+
+      $('#card').append(temp_html);
+      $("#modalPage").append(temp_detail);
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // 등록 버튼 클릭 시 Form 페이지로 전환
+      $('#btn-form').click(function () {
+        $('#regmodal').removeClass('hidden');
+        $('#modalPage').addClass('hidden');
+      });
+
+      // 자세히 보기 버튼 클릭 시 Modal 페이지로 전환
+      $('#card >div nth:child(1) .back-card a').click(function () {
+        $('#regmodal').addClass('hidden');
+        $('#modalPage>div nth:child(1)').removeClass('.hidden');
+      });
+
+      $('#closeButton').click(function () {
+        $('#modalPage').addClass('hidden');
+      });
+      $('#closemodal').click(function () {
+        $('#regmodal').addClass('hidden');
+      });
+    });
+  </script>
 
 </body>
 
